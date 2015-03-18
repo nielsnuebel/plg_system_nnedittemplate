@@ -29,11 +29,17 @@ class plgSystemNNEdittemplate extends JPlugin
 
 	function onAfterRoute() {
 		$app    = JFactory::getApplication();
+		$controller = $app->input->getCmd('controller', '');
 		$option = $app->input->getCmd('option', '');
 		$aid    = $app->input->getCmd('a_id', 0);
+		$id    = $app->input->getCmd('id', 0);
 		$layout   = $app->input->getCmd('layout', '');
 		$tid    = $this->params->get('edittemplateid',0);
 		if($option == 'com_content' && $layout == 'edit' && $aid > 0)
+		{
+			$app->input->set('templateStyle', $tid);
+		}
+		elseif($option == 'com_config' && $controller == 'config.display.modules' && $id > 0)
 		{
 			$app->input->set('templateStyle', $tid);
 		}
