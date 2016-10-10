@@ -9,7 +9,6 @@
 
 defined('_JEXEC') or die;
 
-
 /**
  * Class plgSystemNNEditTemplate
  *
@@ -22,24 +21,43 @@ defined('_JEXEC') or die;
  */
 class plgSystemNNEdittemplate extends JPlugin
 {
-	public function __construct(& $subject, $config) {
+	/**
+	 * Constructor.
+	 *
+	 * @param   object  &$subject  The object to observe -- event dispatcher.
+	 * @param   object  $config    An optional associative array of configuration settings.
+	 *
+	 * @since   1.0.0
+	 */
+	public function __construct(&$subject, $config)
+	{
 		parent::__construct($subject, $config);
+
 		$this->loadLanguage();
 	}
 
-	function onAfterRoute() {
-		$app    = JFactory::getApplication();
+	/**
+	 * After route.
+	 *
+	 * @return  void
+	 *
+	 * @since   1.0.0
+	 */
+	public function onAfterRoute()
+	{
+		$app        = JFactory::getApplication();
 		$controller = $app->input->getCmd('controller', '');
-		$option = $app->input->getCmd('option', '');
-		$aid    = $app->input->getCmd('a_id', 0);
-		$id    = $app->input->getCmd('id', 0);
-		$layout   = $app->input->getCmd('layout', '');
-		$tid    = $this->params->get('edittemplateid',0);
-		if($option == 'com_content' && $layout == 'edit' && $aid > 0)
+		$option     = $app->input->getCmd('option', '');
+		$aid        = $app->input->getCmd('a_id', 0);
+		$id         = $app->input->getCmd('id', 0);
+		$layout     = $app->input->getCmd('layout', '');
+		$tid        = $this->params->get('edittemplateid', 0);
+
+		if ($option == 'com_content' && $layout == 'edit' && $aid > 0)
 		{
 			$app->input->set('templateStyle', $tid);
 		}
-		elseif($option == 'com_config' && $controller == 'config.display.modules' && $id > 0)
+		elseif ($option == 'com_config' && $controller == 'config.display.modules' && $id > 0)
 		{
 			$app->input->set('templateStyle', $tid);
 		}
