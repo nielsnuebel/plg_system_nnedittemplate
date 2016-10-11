@@ -5,7 +5,7 @@
 		<description>System - Bootstrap 3 Edit Template</description>
 		<element>plg_system_nnedittemplate</element>
 		<type>plugin</type>
-    <folder>system</plugin
+		<folder>system</folder>
 		<version>1.0.1</version>
 		<client>site</client>
 		<infourl title="System - Bootstrap 3 Edit Template">https://github.com/nielsnuebel/plg_system_nnedittemplate/releases/latest</infourl>
