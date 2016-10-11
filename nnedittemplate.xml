@@ -26,7 +26,7 @@
             </fieldset>
         </fields>
     </config>
-    <updateservers>
+    	<updateservers>
 		<server type="extension" name="System - Bootstrap 3 Edit Template Updates">https://raw.githubusercontent.com/nielsnuebel/plg_system_nnedittemplate/master/manifest.xml</server>
 	</updateservers>
 </extension>
